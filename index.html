@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>Indho Snacks</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+scroll-behavior:smooth;
+}
+
+/* HEADER */
+
+header{
+background:#FFD400;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.logo{
+font-size:28px;
+color:red;
+font-weight:bold;
+}
+
+nav{
+display:flex;
+gap:25px;
+}
+
+nav a{
+text-decoration:none;
+font-weight:bold;
+color:#111;
+}
+
+/* HERO */
+
+.hero{
+height:650px;
+background:url("images/profile.png");
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:flex-end;
+padding-bottom:5px;
+position:relative;
+}
+
+
+/* soft gradient so text is readable */
+
+.hero::before{
+content:"";
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:40%;
+background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+}
+
+/* hero button */
+
+.hero button{
+position:relative;
+padding:16px 45px;
+background:red;
+color:white;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+}
+.card button{
+background:red;
+color:white;
+border:none;
+padding:10px 20px;
+margin-bottom:15px;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.card button:hover{
+background:#cc0000;
+transform:scale(1.05);
+}
+
+/* MENU */
+
+#menu{
+padding:80px 20px;
+background:#fff8cc;
+text-align:center;
+}
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+max-width:1100px;
+margin:auto;
+margin-top:40px;
+}
+
+.card{
+background:white;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+transition:0.3s;
+}
+
+
+.card:hover{
+transform:translateY(-10px);
+}
+
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.card h3{
+padding:10px;
+}
+
+.price{
+color:red;
+font-weight:bold;
+padding-bottom:15px;
+}
+
+/* GALLERY */
+
+#gallery{
+padding:80px 20px;
+text-align:center;
+}
+
+.gallery{
+columns:3 250px;
+column-gap:15px;
+max-width:1100px;
+margin:auto;
+margin-top:40px;
+}
+
+.gallery img{
+width:100%;
+margin-bottom:15px;
+border-radius:10px;
+}
+
+/* ABOUT */
+
+#about{
+background:#FFD400;
+padding:80px 20px;
+text-align:center;
+}
+
+#about p{
+max-width:700px;
+margin:auto;
+margin-top:20px;
+line-height:1.6;
+}
+
+/* CONTACT */
+
+#contact{
+background:#111;
+color:white;
+padding:60px;
+text-align:center;
+}
+/* LOCATION */
+
+#location{
+padding:80px 20px;
+text-align:center;
+background:#fff;
+}
+
+.map-container{
+max-width:1000px;
+margin:auto;
+margin-top:30px;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.map-container iframe{
+width:100%;
+height:400px;
+border:0;
+}
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+padding:15px 20px;
+border-radius:50px;
+text-decoration:none;
+font-size:18px;
+}
+
+footer{
+background:black;
+color:white;
+text-align:center;
+padding:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:10px;
+}
+
+.gallery{
+columns:2 150px;
+}
+
+.hero{
+height:500px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="logo">Indho Snacks</div>
+
+<nav>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+<a href="#location">Location</a>
+</nav>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<button onclick="order()">Order Now</button>
+
+</section>
+
+<!-- MENU -->
+
+<section id="menu">
+
+<h2>Popular Snacks</h2>
+
+<div class="menu-grid">
+
+<div class="card">
+<img src="images/indospecialtreat.jpg">
+<h3>Indho Special treat</h3>
+<p class="price">$6</p>
+<button onclick="orderItem('Indho Special treat')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/strawberrymojito.jpg">
+<h3>Strawberry Mojito</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Strawberry Mojito')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/matcha.jpg">
+<h3>Mango Matcha</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Mango Matcha')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/caramelfrappe.jpg">
+<h3>Caramel Frappe </h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Caramel Frappe')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/dubaicubby.jpg">
+<h3>Dubai Cubby</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Dubai Cubby')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/mangoshake.jpg">
+<h3>Mango Shake</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Mango Shake')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/strawberrynchocowaffle.jpg">
+<h3>strawberry chocolate waffles</h3>
+<p class="price">$6</p>
+<button onclick="orderItem('strawberry chocolate waffles')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/rainbow.jpg">
+<h3>Rainbow minipancakes</h3>
+<p class="price">$6</p>
+<button onclick="orderItem('Rainbow minipancakes')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/cappucchino.jpg">
+<h3>Cappuccino</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Cappuccino')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/icedcoffee.jpg">
+<h3>iced coffee</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('iced coffee')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/strawberrysmootie.jpg">
+<h3>strawberry milkshake</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('strawberry milkshake')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/icedspanish.jpg">
+<h3>Iced Spanish Latte</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Iced Spanish Latte')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/orange.jpg">
+<h3>Fresh orange juice </h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Fresh orange juice')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/freshmadesandwich.jpg">
+<h3>freshly made sandwiches</h3>
+<p class="price">$4</p>
+<button onclick="orderItem('freshly made sandwiches')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/chickensub.jpg">
+<h3>Chicken sub, packed with flavor </h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Chicken sub, packed with flavor ')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/minipancakes.jpg">
+<h3>Mini pancakes </h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Mini pancakes ')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/refreshingmojito.jpg">
+<h3>Refreshing mojito</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Refreshing mojito')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/strawberrymojito.jpg">
+<h3>Strawberry mojito</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Strawberry mojito')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/fruity.jpg">
+<h3>fruitful pancakes </h3>
+<p class="price">$3</p>
+<button onclick="orderItem('fruitful pancakes')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/banana.jpg">
+<h3>Banana crepe</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Banana crepe')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/indospecialtreat.jpg">
+<h3>Special indhos</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Special indhos')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/oreo.jpg">
+<h3>oreo milkshake</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('oreo milkshake')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/acombo.jpg">
+<h3>A combo to grab sandwiches and milkshake</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('A combo to grab sandwiches and milkshake')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/hotchocolate.jpg">
+<h3>Hot chocolate</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Hot chocolate')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/chocolateicecream.jpg">
+<h3>chocolate icecream</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('chocolate icecream')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/icedcaramellatte.jpg">
+<h3>Iced caramel latte</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('Iced caramel latte')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/icecream.jpg">
+<h3>Icecream</h3>
+<p class="price">$1.3</p>
+<button onclick="orderItem('Icecream')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/coffee.jpg">
+<h3>Coffee</h3>
+<p class="price">$2</p>
+<button onclick="orderItem('Coffee')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/mealycrustsalami.jpg">
+<h3>Mealy crust salami sandwich</h3>
+<p class="price">$3.5</p>
+<button onclick="orderItem('Mealy crust salami sandwich')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/mango.jpg">
+<h3>Mango smoothie</h3>
+<p class="price">$3.5</p>
+<button onclick="orderItem('Mango smoothie')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/icedcoffee.jpg">
+<h3>iced coffee</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('iced coffee')">Order</button>
+</div>
+
+<div class="card">
+<img src="images/icedtea.jpg">
+<h3>iced Tea</h3>
+<p class="price">$3</p>
+<button onclick="orderItem('iced Tea')">Order</button>
+</div>
+</div>
+
+</section>
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+<h2>Gallery</h2>
+
+<div class="gallery">
+
+<img src="images/1.jpg" >
+<img src="images/2.jpg">
+<img src="images/4.jpg">
+<img src="images/3.jpg">
+</div> 
+</section>
+
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2>About Us</h2>
+
+<p>
+Indho Snacks is a dessert snack bar famous for crepes,
+waffles and milkshakes served fresh daily in Hargeisa.
+</p>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<p>📍 Hargeisa</p>
+<p>📞 +252 634875859</p>
+<p>📞Jigjiga Yar 527799 </p>
+<p>📞 Idaacada 514946 </p>
+
+
+</section>
+<!-- LOCATION / MAP -->
+
+<section id="location">
+
+<h2>Our Location</h2>
+
+<div class="map-container">
+<iframe 
+src="https://www.google.com/maps?q=Indho+Snacks+Bar+Hargeisa&output=embed"
+loading="lazy">
+</iframe>
+</div>
+
+</section>
+
+<h2>Order Now</h2>
+
+
+<footer>
+
+© 2026 Indho Snacks
+
+</footer>
+
+<a class="whatsapp"
+href="https://wa.me/252634875859?text=Hello%20I%20want%20to%20order"
+target="_blank">
+Order
+</a>
+
+<script>
+
+function order(){
+window.open("https://wa.me/252634875859?text=Hello I want to order");
+}
+function orderItem(item){
+window.open(`https://wa.me/252634875859?text=Hello I want to order ${item}`);
+}
+
+</script>
+
+</body>
+</html>
